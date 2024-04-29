@@ -1,0 +1,13 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: map-get($map: $size, $key: sm);
+  border-top: 1px solid map-get($map: $colors, $key: secondary);
+  border-radius: map-get($map: $size, $key: sm);
+  .footer-list {
+    @include List();
+    a {
+      color: map-get($map: $colors, $key: secondary);
+    }
+  }
+}

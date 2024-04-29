@@ -1,1 +1,1 @@
-p{color:red}/*# sourceMappingURL=main.min.css.map */
+.footer{display:flex;justify-content:center;padding:10px;border-top:1px solid #6d757d;border-radius:10px}.footer .footer-list{list-style:none;display:flex;gap:5px}.footer .footer-list a{color:#6d757d}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;list-style:0}body{display:flex;flex-direction:column;min-height:100vh}section{flex-grow:1}/*# sourceMappingURL=main.min.css.map */
