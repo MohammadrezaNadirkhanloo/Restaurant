@@ -74,7 +74,12 @@ $size: (
 }
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #ff3c00e8;
+  background: #ff8000;
+}
+
+::selection{
+  color: white;
+  background-color: map-get($map: $colors, $key: primary);
 }
 
 section{
