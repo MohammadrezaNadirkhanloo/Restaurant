@@ -101,6 +101,32 @@
   }
 }
 
+.menu {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: map-get($map: $size, $key: xl);
+  img {
+    width: 100%;
+    border-radius: map-get($map: $size, $key: lg);
+  }
+  &-parent {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      filter: blur(5px);
+    }
+    &-text {
+      position: absolute;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+
 @media screen and (max-width: 900px) {
   .about {
     flex-direction: column;
@@ -113,18 +139,17 @@
   }
 }
 
-@media screen and  (max-width: 550px){
-  .about-img{
+@media screen and (max-width: 550px) {
+  .about-img {
     display: none;
   }
-  
 }
 
 .footer {
   display: flex;
   justify-content: center;
   padding: map-get($map: $size, $key: md);
-  border-top: 1px solid map-get($map: $colors, $key: secondary);
+  border-top: 1px solid map-get($map: $colors, $key: primary);
   border-radius: map-get($map: $size, $key: sm);
   &-list {
     @include List();
