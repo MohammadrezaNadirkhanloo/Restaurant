@@ -61,13 +61,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   gap: 10px;
   padding: map-get($map: $size, $key: xxl) map-get($map: $size, $key: lg);
   &-text {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 60%;
+    width: 100%;
     .about-title {
       @include title($font-nunito, 50px);
       text-align: center;
@@ -94,7 +95,8 @@
     }
   }
   &-img {
-    width: 40%;
+    display: none;
+    width: 90%;
     img {
       width: 100%;
     }
@@ -103,45 +105,111 @@
 
 .menu {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   grid-gap: map-get($map: $size, $key: xl);
   img {
     width: 100%;
     border-radius: map-get($map: $size, $key: lg);
   }
-  &-parent {
+
+  .menu-parent {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    img {
-      filter: blur(5px);
+    .menu-parent-text {
+      display: none;
     }
-    &-text {
-      position: absolute;
-      z-index: 10;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    &:hover {
+      cursor: cell;
+      img {
+        transition: all 0.4s;
+        filter: blur(5px);
+      }
+      .menu-parent-text {
+        position: absolute;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h3 {
+          font-family: $font-dancing;
+          color: map-get($map: $colors, $key: dark);
+          font-size: map-get($map: $size, $key: max);
+          font-weight: bolder;
+          position: relative;
+          margin-bottom: map-get($map: $size, $key: lg);
+          padding: map-get($map: $size, $key: min);
+          &::before {
+            display: block;
+            content: "";
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+            opacity: 0.7;
+            transform: scale(1.07, 1.05) skewX(-15deg);
+            background-image: linear-gradient(to top left, #b37239, #e1965d);
+          }
+        }
+        p {
+          font-family: $font-josefin;
+          font-size: map-get($map: $size, $key: xl);
+          font-weight: 600;
+          text-decoration: underline white;
+          color: white;
+        }
+        a {
+          @include btn-main(30px, 5px, 25px);
+          text-decoration: none;
+          background-color: #e1965d;
+          color: map-get($map: $colors, $key: secondary);
+        }
+      }
     }
   }
 }
 
-@media screen and (max-width: 900px) {
-  .about {
-    flex-direction: column;
-    &-img {
-      width: 90%;
-    }
-    &-text {
-      width: 100%;
-    }
-  }
-}
-
-@media screen and (max-width: 550px) {
+@media (min-width: 576px) {
   .about-img {
-    display: none;
+    display: block;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .menu{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .about {
+    flex-direction: row;
+    &-img {
+      width: 40%;
+    }
+    &-text {
+      width: 60%;
+    }
+  }
+}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .menu{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {
+  .menu {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 

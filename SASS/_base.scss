@@ -20,6 +20,7 @@ $size: (
   lg: 20px,
   xl: 25px,
   xxl: 35px,
+  max:50px,
 );
 
 @mixin List {
@@ -42,7 +43,6 @@ $size: (
 
   &:hover {
     background-color: #e99a33fc;
-    cursor: none;
     color: $black;
   }
 }
