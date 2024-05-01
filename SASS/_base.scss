@@ -4,7 +4,6 @@ $font-nunito: "Nunito", sans-serif;
 $font-dancing: "Dancing Script", cursive;
 $font-josefin: "Josefin Sans", sans-serif;
 
-
 $colors: (
   primary: #c1740ef8,
   secondary: #b6bbc0,
@@ -27,4 +26,57 @@ $size: (
   list-style: none;
   display: flex;
   gap: map-get($map: $size, $key: min);
+}
+
+@mixin btn-main($x, $y, $fsize) {
+  display: inline-block;
+  background-color: transparent;
+  color: map-get($map: $colors, $key: primary);
+  padding: $y $x;
+  border: 1px solid map-get($map: $colors, $key: primary);
+  border-radius: map-get($map: $size, $key: md);
+  font-family: $font-josefin;
+  font-size: $fsize;
+  margin-top: map-get($map: $size, $key: xxl);
+  transition: all 0.7s;
+
+  &:hover {
+    background-color: #e99a33fc;
+    cursor: none;
+    color: $black;
+  }
+}
+
+@mixin title($font, $fsize) {
+  font-family: $font;
+  color: map-get($map: $colors, $key: primary);
+  font-weight: bolder;
+  font-size: $fsize;
+  margin-bottom: map-get($map: $size, $key: xxl);
+}
+
+/* style Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: map-get($map: $colors, $key: dark);
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: map-get($map: $colors, $key: primary);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ff3c00e8;
+}
+
+section{
+  margin: 10px 35px;
 }

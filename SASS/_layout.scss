@@ -5,6 +5,7 @@
   height: 100vh;
   background-repeat: no-repeat;
   background-position: center;
+  border-radius: 0px 0px 15px 15px;
   .logo {
     position: absolute;
   }
@@ -36,11 +37,7 @@
     .banner {
       text-align: center;
       .welcome {
-        font-family: $font-dancing;
-        color: map-get($map: $colors, $key: primary);
-        font-weight: bolder;
-        font-size: 120px;
-        margin-bottom: map-get($map: $size, $key: md);
+        @include title($font-dancing, 120px);
       }
       .sub {
         font-family: $font-nunito;
@@ -49,28 +46,48 @@
         margin: map-get($map: $size, $key: md);
         &:hover {
           color: map-get($map: $colors, $key: warning);
-          font-size: map-get($map: $size, $key: xl);
+          font-size: map-get($map: $size, $key: xxl);
           font-weight: bolder;
         }
       }
       .btn-main {
-        display: inline-block;
-        background-color: transparent;
-        color: map-get($map: $colors, $key: primary);
-        padding: 20px 30px;
-        border: 1px solid map-get($map: $colors, $key: primary);
-        border-radius: map-get($map: $size, $key: md);
-        font-family: $font-josefin;
-        font-size: 50px;
-        margin-top: map-get($map: $size, $key: xxl);
-        transition: all 0.7s;
-        
-        &:hover {
-          background-color: #e99a33fc;
-          cursor: none;
-          color: $black;
-        }
+        @include btn-main(20px, 30px, 50px);
       }
+    }
+  }
+}
+
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  .about-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .about-title {
+      @include title($font-nunito, 50px);
+    }
+    .Chef{
+      font-family: $font-nunito;
+      color: map-get($map: $colors, $key: secondary);
+      margin-bottom: map-get($map: $size, $key: lg);
+      font-size: map-get($map: $size, $key: xxl);
+    }
+    .about-Description{
+      color: map-get($map: $colors, $key: secondary);
+      font-size: map-get($map: $size, $key: xl);
+      font-family: $font-dancing;
+    }
+    .star{
+      margin: map-get($map: $size, $key: xl);
+      color: map-get($map: $colors, $key: primary);
+      font-size: 50px
+    }
+    .btn-main {
+      @include btn-main(10px, 20px, 25px);
+      text-decoration: none;
     }
   }
 }
