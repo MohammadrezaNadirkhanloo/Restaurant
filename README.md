@@ -13,7 +13,7 @@ Final result :
 
 </div>
 
-[![][banner-url]][repo-url]  
+
 
 
 
